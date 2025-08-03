@@ -51,13 +51,11 @@ import { LearnMore } from "@/pages/LearnMore";
 function Router() {
   return (
     <Switch>
-      {/* Protected Dashboard routes */}
+      {/* Dashboard routes */}
       <Route path="/dashboard">
-        <ProtectedRoute requireAuth={true}>
-          <DynamicLayout isDashboardPage={true}>
-            <Dashboard />
-          </DynamicLayout>
-        </ProtectedRoute>
+        <DynamicLayout isDashboardPage={true}>
+          <Dashboard />
+        </DynamicLayout>
       </Route>
 
       <Route path="/dashboard/usage">

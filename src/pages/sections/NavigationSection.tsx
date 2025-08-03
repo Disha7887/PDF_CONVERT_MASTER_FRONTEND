@@ -8,10 +8,11 @@ import {
 } from "@/components/ui/navigation-menu";
 import { useLocation } from "wouter";
 import { useAuth } from "@/contexts/AuthContext";
+import { LayoutDashboard } from "lucide-react";
 
 export const NavigationSection = (): JSX.Element => {
   const [location, setLocation] = useLocation();
-  const { login } = useAuth();
+  const { login, user } = useAuth();
 
   // Navigation menu items data
   const navItems = [
@@ -74,8 +75,16 @@ export const NavigationSection = (): JSX.Element => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* Auth Buttons */}
+          {/* Dashboard and Auth Buttons */}
           <div className="flex items-center space-x-3">
+            <Button
+              variant="outline"
+              className="h-[42px] px-[17px] py-[9px] rounded-lg border border-[#4a5462] [font-family:'Roboto',Helvetica] font-medium !text-white text-base hover:!text-white hover:bg-[#4a5462] transition-colors bg-transparent flex items-center gap-2"
+              onClick={() => setLocation('/dashboard')}
+            >
+              <LayoutDashboard className="w-4 h-4" />
+              Dashboard
+            </Button>
             <Button
               variant="outline"
               className="h-[42px] px-[17px] py-[9px] rounded-lg border border-[#4a5462] [font-family:'Roboto',Helvetica] font-medium !text-white text-base hover:!text-white hover:bg-[#4a5462] transition-colors bg-transparent"
