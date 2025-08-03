@@ -153,31 +153,31 @@ export const HeroSection = (): JSX.Element => {
         </div>
 
         <div className="flex w-full items-center relative">
-          <div className="max-w-screen-xl mx-auto px-8 py-20 w-full relative">
-              <div className="flex flex-wrap w-full items-center gap-12 relative">
+          <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 w-full relative">
+              <div className="flex flex-col lg:flex-row w-full items-center lg:items-start gap-8 lg:gap-12 relative">
                 {/* Left column - Text content */}
-                <div className="flex flex-col w-full md:w-[584px] items-start relative">
+                <div className="flex flex-col w-full lg:w-[584px] items-start relative order-1 lg:order-1">
                   <div className="flex flex-col w-full items-start relative">
                     <div className="flex flex-col w-full items-start relative">
-                      <Badge className="flex h-[38px] items-center px-[17px] py-[9px] bg-[#ef444433] text-red-300 rounded-full border border-solid border-[#f770704c]">
+                      <Badge className="flex h-[38px] items-center px-3 sm:px-[17px] py-[9px] bg-[#ef444433] text-red-300 rounded-full border border-solid border-[#f770704c]">
                         <img
-                          className="mr-2"
+                          className="mr-2 w-4 h-4"
                           alt="Margin wrap"
                           src="/figmaAssets/margin-wrap.svg"
                         />
-                        <span className="font-medium text-sm">
+                        <span className="font-medium text-xs sm:text-sm">
                           Trusted by 10M+ users worldwide
                         </span>
                       </Badge>
 
                       <div className="pt-4">
-                        <h1 className="font-bold text-white text-5xl leading-[48px] max-w-[584px]">
+                        <h1 className="font-bold text-white text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight lg:leading-[48px] max-w-[584px] text-center lg:text-left">
                           Professional PDF tools trusted by millions
                         </h1>
                       </div>
 
                       <div className="pt-4">
-                        <p className="font-normal text-[#d0d5da] text-lg leading-7 max-w-2xl">
+                        <p className="font-normal text-[#d0d5da] text-base sm:text-lg leading-6 sm:leading-7 max-w-2xl text-center lg:text-left">
                           Every tool you need to use PDFs, at your fingertips.
                           All are 100% FREE and easy to use! Merge, split,
                           compress, convert, rotate, unlock and watermark PDFs
@@ -186,47 +186,48 @@ export const HeroSection = (): JSX.Element => {
                       </div>
                     </div>
 
-                    <div className="pt-8">
-                      <div className="flex gap-4">
+                    <div className="pt-6 lg:pt-8">
+                      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                         <Button
-                          className="h-[61px] px-8 py-4 rounded-lg shadow-[0px_10px_15px_-3px_#0000001a,0px_4px_6px_-4px_#0000001a]"
+                          className="h-12 sm:h-[61px] px-6 sm:px-8 py-3 sm:py-4 rounded-lg shadow-[0px_10px_15px_-3px_#0000001a,0px_4px_6px_-4px_#0000001a] w-full sm:w-auto"
                           onClick={() => {
                             console.log('Start Converting Now button clicked');
                             setLocation('/tools');
                           }}
                         >
                           <img
-                            className="mr-2"
+                            className="mr-2 w-4 h-4"
                             alt="Margin wrap"
                             src="/figmaAssets/margin-wrap-3.svg"
                           />
-                          <span className="font-semibold text-base">
-                            Start Converting Now
+                          <span className="font-semibold text-sm sm:text-base">
+                            <span className="hidden sm:inline">Start Converting Now</span>
+                            <span className="sm:hidden">Start Converting</span>
                           </span>
                         </Button>
 
                         <Button
                           variant="outline"
-                          className="h-[61px] px-[34px] py-[18px] bg-[#ffffff1a] text-white rounded-lg border-2 border-solid border-[#ffffff33] backdrop-blur-[2px]"
+                          className="h-12 sm:h-[61px] px-6 sm:px-[34px] py-3 sm:py-[18px] bg-[#ffffff1a] text-white rounded-lg border-2 border-solid border-[#ffffff33] backdrop-blur-[2px] w-full sm:w-auto"
                           onClick={() => {
                             console.log('Learn More button clicked from hero');
                             setLocation('/learn-more');
                           }}
                         >
                           <img
-                            className="mr-2"
+                            className="mr-2 w-4 h-4"
                             alt="Margin wrap"
                             src="/figmaAssets/margin-wrap-5.svg"
                           />
-                          <span className="font-semibold text-base">
+                          <span className="font-semibold text-sm sm:text-base">
                             Learn More
                           </span>
                         </Button>
                       </div>
                     </div>
 
-                    <div className="pt-8">
-                      <div className="flex items-center">
+                    <div className="pt-6 lg:pt-8">
+                      <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:gap-0">
                         {trustIndicators.map((indicator, index) => {
                           // Different animation timing for each element
                           const animationDelay = index * 0.8; // 0s, 0.8s, 1.6s delays
@@ -245,13 +246,13 @@ export const HeroSection = (): JSX.Element => {
                           return (
                             <motion.div
                               key={`indicator-${index}`}
-                              className={`flex h-5 items-center ${indicator.className}`}
+                              className={`flex h-5 items-center ${indicator.className.replace('ml-8', 'lg:ml-8')}`}
                               variants={floatingVariants}
                               animate="animate"
                               initial={{ y: 0 }}
                             >
                               {indicator.icon}
-                              <span className="font-normal text-[#d0d5da] text-sm leading-5">
+                              <span className="font-normal text-[#d0d5da] text-xs sm:text-sm leading-5">
                                 {indicator.text}
                               </span>
                             </motion.div>
@@ -263,7 +264,7 @@ export const HeroSection = (): JSX.Element => {
                 </div>
 
                 {/* Right column - File upload card */}
-                <Card className="flex flex-col w-full md:w-[584px] h-[405px] items-start p-[50px] bg-[#ffffff1a] rounded-3xl border-2 border-dashed border-[#6a7280] backdrop-blur-[2px]">
+                <Card className="flex flex-col w-full lg:w-[584px] h-auto lg:h-[405px] items-start p-6 sm:p-8 lg:p-[50px] bg-[#ffffff1a] rounded-3xl border-2 border-dashed border-[#6a7280] backdrop-blur-[2px] order-0 lg:order-2">
                   <div className="flex flex-col items-center justify-center w-full p-0">
                     <BouncingUploadIcon
                       className="mb-3"
@@ -275,29 +276,29 @@ export const HeroSection = (): JSX.Element => {
                       bgColor="bg-red-500"
                     />
 
-                    <h2 className="font-bold text-white text-xl text-center mb-3">
+                    <h2 className="font-bold text-white text-lg sm:text-xl text-center mb-3">
                       Drop your PDF here
                     </h2>
 
-                    <p className="font-normal text-[#d0d5da] text-base text-center mb-8">
+                    <p className="font-normal text-[#d0d5da] text-sm sm:text-base text-center mb-6 sm:mb-8">
                       or click to browse files
                     </p>
 
-                    <AnimatedSelectButton className="h-[57px] px-12 py-4 mb-8 rounded-xl shadow-[0px_10px_15px_-3px_#0000001a,0px_4px_6px_-4px_#0000001a]">
-                      <UploadIcon className="mr-2 h-5 w-5" />
-                      <span className="text-base">
+                    <AnimatedSelectButton className="h-12 sm:h-[57px] px-8 sm:px-12 py-3 sm:py-4 mb-6 sm:mb-8 rounded-xl shadow-[0px_10px_15px_-3px_#0000001a,0px_4px_6px_-4px_#0000001a] w-full sm:w-auto">
+                      <UploadIcon className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                      <span className="text-sm sm:text-base">
                         Select PDF File
                       </span>
                     </AnimatedSelectButton>
 
-                    <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+                    <div className="flex flex-wrap justify-center gap-x-3 sm:gap-x-4 gap-y-2">
                       {fileFormats.map((format, index) => (
                         <div
                           key={`format-${index}`}
                           className={`flex h-4 items-center ${format.className}`}
                         >
                           <img
-                            className="mr-1"
+                            className="mr-1 w-3 h-3 sm:w-4 sm:h-4"
                             alt={`${format.format} icon`}
                             src={`/figmaAssets/margin-wrap-${index === 0 ? "26" : index === 1 ? "4" : index === 2 ? "9" : "6"}.svg`}
                           />
