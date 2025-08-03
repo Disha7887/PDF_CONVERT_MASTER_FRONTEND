@@ -12,7 +12,7 @@ import { LayoutDashboard } from "lucide-react";
 
 export const NavigationSection = (): JSX.Element => {
   const [location, setLocation] = useLocation();
-  const { login } = useAuth();
+  const { login, user } = useAuth();
 
   // Navigation menu items data
   const navItems = [
